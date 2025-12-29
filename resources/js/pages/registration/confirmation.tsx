@@ -1,8 +1,10 @@
-
-export default function Confirmation() {
+interface ConfirmationProps {
+    fullName: string;
+}
+export default function Confirmation({fullName}: ConfirmationProps) {
     return (
         <div className="w-full justify-center flex flex-col items-center">
-            <h3>Welcome to the WhiteHaus of Wonders E-Raffle Promo,<br/> Full Name! 🎉🎉🎉</h3>
+            <h3>Welcome to the WhiteHaus of Wonders E-Raffle Promo,<br/> {fullName} 🎉🎉🎉</h3>
             <p className="text-justify">
             Thank you for registering and submitting your raffle entry. Your official promo code will be sent directly to your registered email address.<br/>
 
