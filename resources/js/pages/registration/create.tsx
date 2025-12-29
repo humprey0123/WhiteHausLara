@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 
     interface CreateProps {
-        onAccept: () => void;
+        onAccept: (fullName: string) => void;
     }
 
 export default function Create({ onAccept }: CreateProps) {
@@ -12,6 +12,13 @@ export default function Create({ onAccept }: CreateProps) {
         const form = e.currentTarget;
         const formData = new FormData(form);
 
+        const firstName = formData.get('first_name') as string;
+        const middleInitial = formData.get('middle_initial') as string;
+        const lastName = formData.get('last_name') as string;
+
+        // You can use the full name as needed
+        const fullName = `${firstName} ${middleInitial} ${lastName}`;
+
         try {
             const response = await fetch ('/raffle-entry', {
                 method: 'POST',
@@ -19,7 +26,7 @@ export default function Create({ onAccept }: CreateProps) {
             });
 
             if (response.ok) {
-                onAccept();
+                onAccept(fullName);
             } else {
                 alert('Failed to submit the form. Please try again.');
             }

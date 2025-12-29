@@ -21,7 +21,7 @@ return new class extends Migration
             $table->string('invoice');
             $table->string('receipt_amount');
             $table->string('receipt_img');
-            $table->timestamps();
+            $table->timestamps(0);
         });
     }
 
