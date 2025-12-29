@@ -1,17 +1,7 @@
-import { dashboard, login, register } from '@/routes';
-import { type SharedData } from '@/types';
-import { Head, Link, usePage } from '@inertiajs/react';
-import React, { Children, ReactNode } from 'react';
+import { Head } from '@inertiajs/react';
 import HomeLayout from '@/layouts/home-layout';
 
-export default function Welcome({
-    canRegister = true,
-    children,
-}: {
-    canRegister?: boolean;
-    children: ReactNode;
-}) {
-    const { auth } = usePage<SharedData>().props;
+export default function Welcome(){
 
     return (
         <>
