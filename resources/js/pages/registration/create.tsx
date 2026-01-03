@@ -26,15 +26,23 @@ export default function Create({ onAccept }: CreateProps) {
         const fullName = `${firstName} ${middleInitial} ${lastName}`;
 
         try {
-            const response = await fetch ('/raffle-entry', {
+            const response = await fetch('/raffle-entry', {
                 method: 'POST',
+                headers: {
+                    'X-CSRF-TOKEN': document
+                        .querySelector('meta[name="csrf-token"]')
+                        ?.getAttribute('content') || '',
+                },
                 body: formData,
             });
+
 
             if (response.ok) {
                 onAccept(fullName);
             } else {
-                alert('Failed to submit the form. Please try again.');
+                const error = await response.text();
+                console.error(error);
+                alert('Submission failed. Check console.');
             }
         } catch (error) {
             console.error('Error submitting form', error);

@@ -27,4 +27,9 @@ class RaffleEntry extends Model
         'receipt_amount',
         'receipt_img',
     ];
+
+    public function raffleTicket()
+    {
+        return $this->hasOne(RaffleTicket::class);
+    }
 }

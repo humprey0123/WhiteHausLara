@@ -82,6 +82,7 @@ export default function NavHome({ active, onChange }: NavHomeProps) {
                         )}
                     </div>
                     <div className='gap-4 flex flex-cols'>
+                        {/* Remove after dev */}
                             <div className="space-y-6 self-center">
                                 <AppearanceTabs />
                             </div>
