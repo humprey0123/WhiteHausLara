@@ -1,4 +1,6 @@
 import { Button } from "@/components/ui/button";
+import React, { useState } from "react";
+
 
     interface CreateProps {
         onAccept: (fullName: string) => void;
@@ -6,9 +8,13 @@ import { Button } from "@/components/ui/button";
 
 export default function Create({ onAccept }: CreateProps) {
 
+    const [branch, setBranch] = useState('Website');
+
+
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         
+
         const form = e.currentTarget;
         const formData = new FormData(form);
 
@@ -71,7 +77,19 @@ export default function Create({ onAccept }: CreateProps) {
                 </fieldset>
                 <fieldset className="create-field">
                     <label>Store/Branch of Purchase: </label>
-                    <input required type="text" name="branch" placeholder="Choose a Branch" defaultValue="Website" />
+                    <select name="branch" value={branch} onChange={(e) => setBranch(e.target.value)}>
+                        <option value="Website">Website</option>
+                        <option value="SM City Cauayan">SM City Cauayan</option>
+                        <option value="SM City Pulilan">SM City Pulilan</option>
+                        <option value="SM City East Ortigas">SM City East Ortigas</option>
+                        <option value="Ayala Harbor Point">Ayala Harbor Point</option>
+                        <option value="SM Sucat">SM Sucat</option>
+                        <option value="Sta. Lucia Grandmall">Sta. Lucia Grandmall</option>
+                        <option value="Ayala Mall Feliz">Ayala Mall Feliz</option>
+                        <option value="SM City Rosales">SM City Rosales</option>
+                        <option value="SM City Novaliches">SM City Novaliches</option>
+                        <option value="SM City Southmall">SM City Southmall</option> 
+                    </select>
                 </fieldset>
                 <fieldset className="create-field">
                     <label>Purchase Date: </label>

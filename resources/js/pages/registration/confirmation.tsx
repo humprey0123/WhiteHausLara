@@ -1,6 +1,8 @@
+
 interface ConfirmationProps {
     fullName: string;
 }
+
 export default function Confirmation({fullName}: ConfirmationProps) {
     return (
         <div className="w-full justify-center flex flex-col items-center">

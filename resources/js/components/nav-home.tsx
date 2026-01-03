@@ -1,8 +1,8 @@
 import { login, register, dashboard } from "@/routes";
 import { Head, Link, usePage } from '@inertiajs/react';
 import { type SharedData } from '@/types';
-import { Button } from "@headlessui/react";
 import React, { useState } from "react";
+import AppearanceTabs from "./appearance-tabs";
 
 interface NavHomeProps {
   active: string;
@@ -81,7 +81,10 @@ export default function NavHome({ active, onChange }: NavHomeProps) {
                             </>
                         )}
                     </div>
-                    <div className='gap-4'>
+                    <div className='gap-4 flex flex-cols'>
+                            <div className="space-y-6 self-center">
+                                <AppearanceTabs />
+                            </div>
                         <img src="whiteHaus_black.png" alt="" className='h-[60px] max-w-[300px] block dark:hidden pr-0  xl:pr-4 object-contain w-full' />
                         <img src="whiteHaus_white.png" alt="" className='h-[60px] max-w-[250px] sm:max-w-[300px] hidden dark:block pr-3 xl:pr-4 object-contain w-full' />
                     </div>

@@ -2,9 +2,7 @@ import { PlaceholderPattern } from '@/components/ui/placeholder-pattern';
 import AppLayout from '@/layouts/app-layout';
 import { dashboard } from '@/routes';
 import { type BreadcrumbItem } from '@/types';
-import React from "react";
 import { Head, usePage } from '@inertiajs/react';
-
 
 interface RaffleEntry {
     id: number;
@@ -21,7 +19,6 @@ interface RaffleEntry {
     receipt_img: string;
     created_at: string;
 }
-
 
 const breadcrumbs: BreadcrumbItem[] = [
     {

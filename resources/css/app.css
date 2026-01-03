@@ -179,8 +179,11 @@
     td:first-child {
         @apply text-center
     }
-    input {
+    input, select {
         @apply p-2 border
+    }
+    option {
+        @apply p-2 bg-[var(--background)];
     }
     fieldset {
         @apply grid items-center gap-2 md:gap-3 mb-3;
