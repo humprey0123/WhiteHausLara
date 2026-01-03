@@ -57,8 +57,20 @@ class RaffleEntryController extends Controller
                 ($request->middle_initial ? $request->middle_initial . ' ' : ' ')
                 . $request->last_name;
 
+            $letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+            $numbers = '1234567890';
+            $randomLetters = '';
+            for ($i=0 ; $i < 8 ; $i++) {
+                $randomLetters .= $letters[rand(0, strlen($letters) - 1)];
+            }
+
+            $randomNumbers = '';
+            for ($i=0 ; $i < 10 ; $i++) {
+                $randomNumbers .= $numbers[rand(0, strlen($numbers) - 1)];
+            }
+                
             do {
-                $raffleCode = Str::upper(Str::random(18));
+                $raffleCode = 'WH-' . str_shuffle($randomLetters . $randomNumbers);
             } while (RaffleTicket::where('raffle_code', $raffleCode)->exists());
 
             RaffleTicket::create([
