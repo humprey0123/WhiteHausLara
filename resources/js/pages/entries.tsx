@@ -1,58 +1,25 @@
-import { PlaceholderPattern } from '@/components/ui/placeholder-pattern';
-import AppLayout from '@/layouts/app-layout';
-import { dashboard } from '@/routes';
-import { type BreadcrumbItem } from '@/types';
-import { Head, usePage } from '@inertiajs/react';
+import AppLayout from "@/layouts/app-layout";
+import { Head } from "@inertiajs/react";
+import { type BreadcrumbItem } from "@/types";
+import {RaffleEntry} from "./dashboard";
+import { usePage } from "@inertiajs/react";
 
-export interface RaffleEntry {
-    id: number;
-    first_name: string;
-    middle_initial: string;
-    last_name: string;
-    email: string;
-    contact_num: string;
-    address: string;
-    branch: string;
-    purchase_date: string;
-    invoice: string;
-    receipt_amount: string;
-    receipt_img: string;
-    created_at: string;
-}
-
-const breadcrumbs: BreadcrumbItem[] = [
+const breadcrumbs : BreadcrumbItem[] = [
     {
-        title: 'Dashboard',
-        href: dashboard().url,
+        title: 'Raffle Entries',
+        href: '/Entries',
     },
 ];
 
-export default function Dashboard() {
-
+export default function Entries() {
     const pageProps = usePage().props as unknown as { raffleEntries: RaffleEntry[] };
     const { raffleEntries } = pageProps;
 
     return (
         <AppLayout breadcrumbs={breadcrumbs}>
-            <Head title="Dashboard" />
-            <div className="flex h-full flex-1 flex-col gap-4 overflow-x-auto rounded-xl p-4">
-                <div className="grid auto-rows-min gap-4 md:grid-cols-3">
-                    <div className="relative aspect-video overflow-hidden rounded-xl border border-sidebar-border/70 dark:border-sidebar-border content-center">
-                        {/* <PlaceholderPattern className="absolute inset-0 size-full stroke-neutral-900/20 dark:stroke-neutral-100/20" /> */}
-                        <h4 className='text-center'>Total Entries: <h1 className='mt-3'>{raffleEntries.length}</h1></h4>
-                    </div>
-                    <div className="relative aspect-video overflow-hidden rounded-xl border border-sidebar-border/70 dark:border-sidebar-border">
-                        <PlaceholderPattern className="absolute inset-0 size-full stroke-neutral-900/20 dark:stroke-neutral-100/20" />
-                        <h1></h1>
-                    </div>
-                    <div className="relative aspect-video overflow-hidden rounded-xl border border-sidebar-border/70 dark:border-sidebar-border">
-                        <PlaceholderPattern className="absolute inset-0 size-full stroke-neutral-900/20 dark:stroke-neutral-100/20" />
-                    </div>
-                </div>
-                <div className="relative w-full max-h-[500px] overflow-y-auto rounded-xl border border-sidebar-border/70 dark:border-sidebar-border">
-                </div>
+            <Head title="Entries"/>
                 <div className="relative max-h-[500px] w-full overflow-y-auto rounded-sm border border-sidebar-border/70 dark:border-sidebar-border">
-                    <table className='w-full rounded-xl'>
+                    <table className='w-full'>
                         <thead>
                             <tr>
                                 <th>Full Name</th>
@@ -91,9 +58,9 @@ export default function Dashboard() {
                                 </tr>
                             ))}
                         </tbody>
+
                     </table>
                 </div>
-            </div>
         </AppLayout>
-    );
+    )
 }
