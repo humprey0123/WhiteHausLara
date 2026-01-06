@@ -22,7 +22,7 @@ export default function Tickets() {
     const { raffleTickets } = pageProps;
 
     return (
-        <AppLayout>
+        <AppLayout breadcrumbs={breadcrumbs}>
             <Head title="Tickets"/>
             <div className="p-4">
                 <h4>Tickets Page</h4>
