@@ -52,7 +52,7 @@ export default function Dashboard() {
 <div className="relative w-full max-h-[500px] overflow-y-auto rounded-xl border border-sidebar-border/70 dark:border-sidebar-border">
 </div>
                 <div className="relative max-h-[500px] w-full overflow-y-auto rounded-xl border border-sidebar-border/70 dark:border-sidebar-border">
-                    <table>
+                    <table className='w-full'>
                         <thead>
                             <tr>
                                 <th>Full Name</th>
@@ -70,7 +70,9 @@ export default function Dashboard() {
                         <tbody>
                             {raffleEntries.map((entry) => (
                                 <tr key={entry.id}>
-                                    <td>{entry.first_name} {entry.middle_initial} {entry.last_name}</td>
+                                    <td className='1/4'>{`${entry.first_name} `}
+                                        {entry.middle_initial && `${entry.middle_initial}. `}
+                                        {entry.last_name}</td>
                                     <td>{entry.email}</td>
                                     <td>{entry.contact_num}</td>
                                     <td>{entry.address}</td>

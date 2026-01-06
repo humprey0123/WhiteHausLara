@@ -57,6 +57,7 @@ class RaffleEntryController extends Controller
                 ($request->middle_initial ? $request->middle_initial . ' ' : ' ')
                 . $request->last_name;
 
+            // Creating Raffle Code
             $letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
             $numbers = '1234567890';
             $randomLetters = '';
