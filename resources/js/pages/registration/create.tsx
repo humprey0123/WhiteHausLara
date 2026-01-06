@@ -22,7 +22,7 @@ export default function Create({ onAccept }: CreateProps) {
         const middleInitial = formData.get('middle_initial') as string;
         const lastName = formData.get('last_name') as string;
 
-        // You can use the full name as needed
+        // Using for the registration confirmation 
         const fullName = `${firstName} ${middleInitial} ${lastName}`;
 
         try {
