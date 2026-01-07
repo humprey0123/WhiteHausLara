@@ -9,9 +9,11 @@ const breadcrumbs = [
 ]
 export default function Serials() {
     return (
-        <div>
-            a
-        </div>
-        
+        <AppLayout breadcrumbs={breadcrumbs}>
+            <Head title="Serials" />
+            <div>
+                a
+            </div>
+        </AppLayout>
     )
 }
