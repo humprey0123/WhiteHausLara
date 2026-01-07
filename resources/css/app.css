@@ -152,7 +152,10 @@
         @apply text-2xl md:text-4xl font-semibold my-3 text-left;
         }
     h4 {
-        @apply text-3xl font-semibold;
+        @apply text-xl font-semibold;
+    }
+    h5 {
+        @apply text-lg font-medium;
     }
     ol {
         @apply list-disc pl-3 md:pl-10 my-1;
