@@ -18,7 +18,7 @@ export default function Entries() {
     return (
         <AppLayout breadcrumbs={breadcrumbs}>
             <Head title="Entries"/>
-                <div className="relative max-h-[500px] w-full overflow-y-auto rounded-sm border border-sidebar-border/70 dark:border-sidebar-border">
+                <div className="relative max-h-[500px] m-5 overflow-y-auto rounded-sm border border-sidebar-border/70 dark:border-sidebar-border">
                     <table className='w-full'>
                         <thead>
                             <tr>

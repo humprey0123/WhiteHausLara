@@ -25,7 +25,6 @@ export default function Tickets() {
         <AppLayout breadcrumbs={breadcrumbs}>
             <Head title="Tickets"/>
             <div className="p-4">
-                <h4>Tickets Page</h4>
                 <div>
                     <table>
                         <thead>

@@ -41,13 +41,21 @@ Route::middleware(['auth', 'verified'])->group(function () {
         ]);
     })->name('tickets');
 
-    Route::get('validation', function() {
+    Route::get('verification', function() {
         $entries = RaffleEntry::orderBy('created_at', 'desc')->get();
 
-        return Inertia::render('validation', [
+        return Inertia::render('verification', [
             'raffleEntries' => $entries
         ]);
-    })->name('validation');
+    })->name('verification');
+    
+    Route::get('serials', function() {
+        $entries = RaffleEntry::orderBy('created_at', 'desc')->get();
+
+        return Inertia::render('serials', [
+            'raffleEntries' => $entries
+        ]);
+    })->name('serials');
 
 });
 
