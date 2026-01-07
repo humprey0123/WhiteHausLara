@@ -69,13 +69,13 @@ export default function Dashboard() {
                         </thead>
                         <tbody>
                             {raffleEntries.map((entry) => (
-                                <tr key={entry.id}>
+                                <tr className='text-center' key={entry.id}>
                                     <td className='1/4'>{`${entry.first_name} `}
                                         {entry.middle_initial && `${entry.middle_initial}. `}
                                         {entry.last_name}</td>
                                     <td>{entry.email}</td>
                                     <td>{entry.contact_num}</td>
-                                    <td>{entry.address}</td>
+                                    <td className="text-start">{entry.address}</td>
                                     <td>{entry.branch}</td>
                                     <td>{entry.purchase_date}</td>
                                     <td>{entry.invoice}</td>

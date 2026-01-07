@@ -179,6 +179,9 @@
         @apply px-1 md:px-3 py-2 border ;
         border-color: var(--foreground)
     }
+    .text-center {
+        @apply text-center
+    }
     td:first-child {
         @apply text-center
     }
