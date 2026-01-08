@@ -149,7 +149,7 @@
         }
 
     h3 {
-        @apply text-2xl md:text-4xl font-semibold my-3 text-left;
+        @apply text-2xl md:text-2xl font-semibold my-3 text-left;
         }
     h4 {
         @apply text-xl font-semibold;
@@ -179,6 +179,9 @@
         @apply px-1 md:px-3 py-2 border ;
         border-color: var(--foreground)
     }
+    .text-center {
+        @apply text-center
+    }
     td:first-child {
         @apply text-center
     }
@@ -187,6 +190,9 @@
     }
     option {
         @apply p-2 bg-[var(--background)];
+    }
+    legend {
+        @apply mb-1 mt-3 font-semibold;
     }
     fieldset {
         @apply grid items-center gap-2 md:gap-3 mb-3;

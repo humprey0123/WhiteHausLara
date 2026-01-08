@@ -36,10 +36,12 @@ export default function Create({ onAccept }: CreateProps) {
                 body: formData,
             });
 
-
             if (response.ok) {
                 onAccept(fullName);
-            } else {
+            } else if (response.status === 422) {
+                alert('Validation error. Please check your input.');
+            }
+             else {
                 const error = await response.text();
                 console.error(error);
                 alert('Submission failed. Check console.');
