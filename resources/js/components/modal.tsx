@@ -11,7 +11,7 @@ export default function Modal({ isOpen, children }: ModalProps) {
 
     return (
         <div className='inset-0 flex items-center justify-center fixed backdrop-blur-xs z-50'>
-            <div className='bg-black p-4 rounded-md shadow-lg'>
+            <div className='bg-black p-5 rounded-2xl shadow-lg'>
                 {children}
             </div>
 
