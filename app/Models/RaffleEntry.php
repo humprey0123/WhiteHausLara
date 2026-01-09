@@ -12,7 +12,7 @@ class RaffleEntry extends Model
     protected $casts = [
     'created_at' => 'datetime:m-d-Y', // H:i is for testing purposes only. Should Be removed before deployment 
     'updated_at' => 'datetime:m-d-Y',
-];
+    ];
 
     protected $fillable=[
         'first_name',
