@@ -1,8 +1,8 @@
 import AppLayout from '@/layouts/app-layout';
 import { Head } from '@inertiajs/react';
-import Modal from '@/components/modal';
-import { useState } from 'react';
+import { Children, useState } from 'react';
 import { Button } from '@/components/ui/button';
+import AddSerial from '@/components/add-serial-modal';
 
 const breadcrumbs = [
     {
@@ -13,7 +13,7 @@ const breadcrumbs = [
 
 export default function Serials() {
 
-    const [isOpen, setIsModalOpen] = useState(false);
+    const [open, setIsModalOpen] = useState(false);
 
     return (
         <AppLayout breadcrumbs={breadcrumbs}>
@@ -38,19 +38,7 @@ export default function Serials() {
                         </tr>
                     </tbody>
                 </table>
-                <Modal isOpen={isOpen} onClose={() => setIsModalOpen(false)}>
-                    <div className='relative'>
-                        <Button onClick={() => setIsModalOpen(false)} className='absolute right-0'>X</Button>
-                        <h3 className='text-center'>Serial</h3>
-                        <form className='block' action="">
-                            <legend>Serial Number:</legend>
-                            <input type="text" name='serial' placeholder='Serial Number' className='w-full'/>
-                            <legend>Date</legend>
-                            <input type="date" name='datebought' className='w-full' />
-                            <Button type='submit' className='mt-3 justify-center'>Add Serial</Button>
-                        </form>
-                    </div>
-                </Modal>
+                <AddSerial open={open} onClose={() => setIsModalOpen(false)} />
             </div>
         </AppLayout>
     )
