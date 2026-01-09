@@ -1,7 +1,6 @@
 import { Button } from "@/components/ui/button";
 import React, { useState } from "react";
 
-
     interface CreateProps {
         onAccept: (fullName: string) => void;
     }
@@ -10,10 +9,8 @@ export default function Create({ onAccept }: CreateProps) {
 
     const [branch, setBranch] = useState('Website');
 
-
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        
 
         const form = e.currentTarget;
         const formData = new FormData(form);
@@ -39,7 +36,7 @@ export default function Create({ onAccept }: CreateProps) {
             if (response.ok) {
                 onAccept(fullName);
             } else if (response.status === 422) {
-                alert('Validation error. Please check your input.');
+                alert('Please check your input.');
             }
              else {
                 const error = await response.text();

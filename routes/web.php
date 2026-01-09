@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 use Laravel\Fortify\Features;
 use App\Http\Controllers\RaffleEntryController;
+use App\Http\Controllers\CompanySerialsController;
 use App\Models\RaffleEntry;
 use App\Models\RaffleTicket;
 
@@ -56,6 +57,8 @@ Route::middleware(['auth', 'verified'])->group(function () {
             'raffleEntries' => $entries
         ]);
     })->name('serials');
+
+    Route::post('/add-serial', [CompanySerialsController::class, 'store'])->name('serial.store');
 
 });
 
