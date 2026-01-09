@@ -18,7 +18,7 @@ export default function Entries() {
     return (
         <AppLayout breadcrumbs={breadcrumbs}>
             <Head title="Entries"/>
-                <div className="relative max-h-[500px] m-5 overflow-y-auto rounded-sm border border-sidebar-border/70 dark:border-sidebar-border">
+                <div className="relativew m-5 overflow-y-auto rounded-sm border border-sidebar-border/70 dark:border-sidebar-border">
                     <table className='w-full'>
                         <thead>
                             <tr>
@@ -36,13 +36,13 @@ export default function Entries() {
                         </thead>
                         <tbody>
                             {raffleEntries.map((entry) => (
-                                <tr key={entry.id}>
+                                <tr className="text-center" key={entry.id}>
                                     <td className='1/4'>{`${entry.first_name} `}
                                         {entry.middle_initial && `${entry.middle_initial}. `}
                                         {entry.last_name}</td>
                                     <td>{entry.email}</td>
                                     <td>{entry.contact_num}</td>
-                                    <td>{entry.address}</td>
+                                    <td className="text-start">{entry.address}</td>
                                     <td>{entry.branch}</td>
                                     <td>{entry.purchase_date}</td>
                                     <td>{entry.invoice}</td>
