@@ -7,6 +7,7 @@ use App\Http\Controllers\RaffleEntryController;
 use App\Http\Controllers\CompanySerialsController;
 use App\Models\RaffleEntry;
 use App\Models\RaffleTicket;
+use App\Models\CompanySerials;
 
 Route::get('/', function () {
     return Inertia::render('welcome', [
@@ -51,10 +52,10 @@ Route::middleware(['auth', 'verified'])->group(function () {
     })->name('verification');
     
     Route::get('serials', function() {
-        $entries = RaffleEntry::orderBy('created_at', 'desc')->get();
+        $entries = CompanySerials::orderBy('created_at', 'desc')->get();
 
         return Inertia::render('serials', [
-            'raffleEntries' => $entries
+            'companySerials' => $entries
         ]);
     })->name('serials');
 
