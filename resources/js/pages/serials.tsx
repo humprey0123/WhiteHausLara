@@ -55,7 +55,7 @@ export default function Serials() {
                                         <input
                                             value={companySerial}
                                             onChange={(e) => setCompanySerial(e.target.value)}
-                                            className="border"
+                                            className="border-none text-center font-bold"
                                         />
                                     ) : (
                                         serial.company_serial
