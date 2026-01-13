@@ -4,6 +4,7 @@ import { Children, useState } from 'react';
 import { Button } from '@/components/ui/button';
 import AddSerial from '@/components/add-serial-modal';
 import { usePage } from '@inertiajs/react';
+import { router } from '@inertiajs/react';
 
 
 interface Serial {
@@ -21,6 +22,11 @@ const breadcrumbs = [
 
 export default function Serials() {
 
+
+    const [editingId, setEditingId] = useState<number | null>(null);
+    const [companySerial, setCompanySerial] = useState('');
+    const [dateBought, setDateBought] = useState('');
+
     const [open, setIsModalOpen] = useState(false);
 
     const pageProps = usePage().props as unknown as { companySerials: Serial[] };
@@ -30,21 +36,73 @@ export default function Serials() {
         <AppLayout breadcrumbs={breadcrumbs}>
             <Head title="Serials" />
             <div className='m-5 relative'>
-                <Button className="absolute top-0 right-0" onClick={() => setIsModalOpen(true)}>Add Serial</Button>
                 <table className='w-1/4'>
                     <thead>
                         <tr>
                             <th>ID</th>
                             <th>Serial Code</th>
                             <th>Date Bought</th>
+                            <th>Edit</th>
                         </tr>
                     </thead>
                     <tbody>
                         {companySerials.map((serial) => (
-                            <tr key={serial.id} className='text-center'>
+                            <tr key={serial.id} className="text-center">
                                 <td>{serial.id}</td>
-                                <td>{serial.company_serial}</td>
-                                <td>{serial.date_bought}</td>
+
+                                <td>
+                                    {editingId === serial.id ? (
+                                        <input
+                                            value={companySerial}
+                                            onChange={(e) => setCompanySerial(e.target.value)}
+                                            className="border"
+                                        />
+                                    ) : (
+                                        serial.company_serial
+                                    )}
+                                </td>
+
+                                <td>
+                                    {editingId === serial.id ? (
+                                        <input
+                                            type="date"
+                                            value={dateBought}
+                                            onChange={(e) => setDateBought(e.target.value)}
+                                            className="border"
+                                        />
+                                    ) : (
+                                        serial.date_bought
+                                    )}
+                                </td>
+
+                                <td>
+                                    {editingId === serial.id ? (
+                                        <Button
+                                            onClick={() => 
+                                                router.put(`/serials/${serial.id}`, {
+                                                    company_serial: companySerial,
+                                                    date_bought: dateBought,
+                                                    },
+                                                    {
+                                                        onSuccess: () => setEditingId(null)
+                                                    }
+                                                )
+                                            }
+                                        >
+                                            Update
+                                        </Button>
+                                    ) : (
+                                        <Button
+                                            onClick={() => {
+                                                setEditingId(serial.id);
+                                                setCompanySerial(serial.company_serial);
+                                                setDateBought(serial.date_bought);
+                                            }}
+                                        >
+                                            Edit
+                                        </Button>
+                                    )}
+                                </td>
                             </tr>
                         ))}
                     </tbody>
