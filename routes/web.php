@@ -61,6 +61,10 @@ Route::middleware(['auth', 'verified'])->group(function () {
 
     Route::post('/add-serial', [CompanySerialsController::class, 'store'])->name('serial.store');
 
+    // routes/web.php
+    Route::put('/serials/{id}', [CompanySerialsController::class, 'update']);
+
+
 });
 
 Route::post('/raffle-entry', [RaffleEntryController::class, 'store'])->name('raffle.store');

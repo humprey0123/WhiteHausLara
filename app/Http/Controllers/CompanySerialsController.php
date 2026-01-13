@@ -27,4 +27,22 @@ class CompanySerialsController extends Controller
         'data' => $addSerial
     ], 201);
     }
+
+    public function update(Request $request, $id)
+    {
+        $request->validate([
+            'company_serial' => 'required|string|max:50',
+            'date_bought' => 'required|date',
+        ]);
+
+        $serial = CompanySerials::findOrFail($id);
+
+        $serial->update([
+            'company_serial' => $request->company_serial,
+            'date_bought' => $request->date_bought,
+        ]);
+
+        return redirect()->back();
+    }
+
 }
