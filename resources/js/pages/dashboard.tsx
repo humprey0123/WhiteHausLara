@@ -28,8 +28,9 @@ const breadcrumbs: BreadcrumbItem[] = [
 ];
 
 export default function Dashboard() {
-
-    const pageProps = usePage().props as unknown as { raffleEntries: RaffleEntry[] };
+    const pageProps = usePage().props as unknown as {
+        raffleEntries: RaffleEntry[];
+    };
     const { raffleEntries } = pageProps;
 
     return (
@@ -37,9 +38,12 @@ export default function Dashboard() {
             <Head title="Dashboard" />
             <div className="flex h-full flex-1 flex-col gap-4 overflow-x-auto rounded-xl p-4">
                 <div className="grid auto-rows-min gap-4 md:grid-cols-3">
-                    <div className="relative aspect-video overflow-hidden rounded-xl border border-sidebar-border/70 dark:border-sidebar-border content-center">
+                    <div className="relative aspect-video content-center overflow-hidden rounded-xl border border-sidebar-border/70 dark:border-sidebar-border">
                         {/* <PlaceholderPattern className="absolute inset-0 size-full stroke-neutral-900/20 dark:stroke-neutral-100/20" /> */}
-                        <h4 className='text-center'>Total Entries: <h1 className='mt-3'>{raffleEntries.length}</h1></h4>
+                        <h4 className="text-center">
+                            Total Entries:{' '}
+                            <h1 className="mt-3">{raffleEntries.length}</h1>
+                        </h4>
                     </div>
                     <div className="relative aspect-video overflow-hidden rounded-xl border border-sidebar-border/70 dark:border-sidebar-border">
                         <PlaceholderPattern className="absolute inset-0 size-full stroke-neutral-900/20 dark:stroke-neutral-100/20" />
@@ -49,10 +53,9 @@ export default function Dashboard() {
                         <PlaceholderPattern className="absolute inset-0 size-full stroke-neutral-900/20 dark:stroke-neutral-100/20" />
                     </div>
                 </div>
-                <div className="relative w-full max-h-[500px] overflow-y-auto rounded-xl border border-sidebar-border/70 dark:border-sidebar-border">
-                </div>
+                <div className="relative max-h-[500px] w-full overflow-y-auto rounded-xl border border-sidebar-border/70 dark:border-sidebar-border"></div>
                 <div className="relative max-h-[500px] w-full overflow-y-auto rounded-sm border border-sidebar-border/70 dark:border-sidebar-border">
-                    <table className='w-full rounded-xl'>
+                    <table className="w-full rounded-xl">
                         <thead>
                             <tr>
                                 <th>Full Name</th>
@@ -69,20 +72,29 @@ export default function Dashboard() {
                         </thead>
                         <tbody>
                             {raffleEntries.map((entry) => (
-                                <tr className='text-center' key={entry.id}>
-                                    <td className='1/4'>{`${entry.first_name} `}
-                                        {entry.middle_initial && `${entry.middle_initial}. `}
-                                        {entry.last_name}</td>
+                                <tr className="text-center" key={entry.id}>
+                                    <td className="1/4">
+                                        {`${entry.first_name} `}
+                                        {entry.middle_initial &&
+                                            `${entry.middle_initial}. `}
+                                        {entry.last_name}
+                                    </td>
                                     <td>{entry.email}</td>
                                     <td>{entry.contact_num}</td>
-                                    <td className="text-start">{entry.address}</td>
+                                    <td className="text-start">
+                                        {entry.address}
+                                    </td>
                                     <td>{entry.branch}</td>
                                     <td>{entry.purchase_date}</td>
                                     <td>{entry.invoice}</td>
                                     <td>{entry.receipt_amount}</td>
                                     <td>
                                         {entry.receipt_img && (
-                                            <a href={`/storage/${entry.receipt_img}`} target='_blank' rel='noopenre noreferrer'>
+                                            <a
+                                                href={`/storage/${entry.receipt_img}`}
+                                                target="_blank"
+                                                rel="noopenre noreferrer"
+                                            >
                                                 Reciept {entry.id}
                                             </a>
                                         )}
